@@ -28,7 +28,7 @@ public class UserRegisterDAOImpl extends BaseDao implements UserRegisterDAO {
 		return 0;
 	}
 	
-	// email 驗證成功並修改 completed = true
+	// 當使用者點擊註冊信箱裡的驗證連結後，將資料表中這個使用者的 completed 欄位設為 true，代表完成驗證
 	@Override
 	public int emailConfirmOK(String username) {
 		String sql = "update user set completed = true where username = ?";
