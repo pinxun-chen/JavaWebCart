@@ -12,5 +12,5 @@ public class OrderDTO {
 	private Integer userId;
 	private Date orderDate;
 	// 集合該筆訂單所有的訂單項目
-	private List<OrderItemDTO> item = new ArrayList<>();
+	private List<OrderItemDTO> items = new ArrayList<>();
 }
