@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,23 +39,16 @@
                                 <tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
                                     onmouseout="this.style.backgroundColor=''">
                                     <td>
-                                        <a href="/JavaWebCart/product/cart/item/delete?index=${ status.index }">X</a>
+                                        <form method="post" action="/JavaWebCart/product/cart/item/delete">
+                                        	<input type="hidden" name="index" value="${ status.index }" />
+                                        	<input type="submit" value="X" />
+                                        </form>
                                     </td>
                                     <td align="center">${status.index}</td>
                                     <td align="center">${item.productId}</td>
                                     <td>${item.productName}</td>
                                     <td align="right">${item.price}</td>
-                                    <td>
-                                        <c:choose>
-                                            <c:when test="${not empty item.imageBase64}">
-                                                <img width="100" src="data:image/png;base64,${item.imageBase64}" />
-                                            </c:when>
-                                            <c:otherwise>
-                                                <img width="100" src="" />
-                                                <%-- 或顯示預設圖：src="default.png" --%>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
+                                    <td><img width="100" src="data:image/png;base64,${item.imageBase64}" /></td>
                                 </tr>
                             </c:forEach>
                             <!-- 總計 -->
